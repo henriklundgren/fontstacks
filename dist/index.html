@@ -7,7 +7,7 @@
 <!-- css-->
 <!-- CDN fails on file:// protocol (local dev) @see http://stackoverflow.com/a/21318735-->
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="fontstacks-0.1.0.min.css">
+<link rel="stylesheet" href="fontstacks-0.1.1.min.css">
 <style type="text/css">
   .copyleft {
     display: inline-block;
@@ -21,7 +21,7 @@
 <body class="Fontstacks Fontstacks--arial">
   <main style="text-align:center;" class="jumbotron">
     <div class="container">
-      <h1 style="text-transform:capitalize;">fontstacks<small>v0.1.0</small></h1>
+      <h1 style="text-transform:capitalize;">fontstacks<small>v0.1.1</small></h1>
       <p class="lead">Websafe fontstacks as self-contained components.</p>
       <p>
         <div class="btn-group">
@@ -66,8 +66,8 @@
     (function() {
     
       var re = /.git$/;
-      var github = 'https://github.com/henriklundgren/webtippyCSS.git';
-      var version = '0.1.0';
+      var github = 'https://github.com/henriklundgren/fontstacks.git';
+      var version = '0.1.1';
       
       var releases = github.replace(re, '/releases/');
       var zip = github.replace(re, '/archive/master.zip');
@@ -146,7 +146,7 @@
       var monospace = document.querySelector('.Fontstacks--monospace');
       var pre = document.createElement('pre');
       setTextContent(pre, code);
-      monospace.insertBefore(pre);
+      monospace.appendChild(pre);
       
       
       

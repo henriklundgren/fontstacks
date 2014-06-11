@@ -5,7 +5,7 @@ Websafe fontstacks as self-contained components.
 ## Usage
 
 ```html
-<body class="Websafe--[modifier]">
+<body class="Fontstacks--[modifier]">
 </body>
 ```
 
