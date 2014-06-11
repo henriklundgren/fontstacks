@@ -1,0 +1,150 @@
+doctype html
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+title #{pkg.name}
+// mobile browsing
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+// css
+// CDN fails on file:// protocol (local dev) @see http://stackoverflow.com/a/21318735
+link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel="stylesheet")
+link(rel="stylesheet", href="#{pkg.name}-#{pkg.version}.min.css")
+
+style(type="text/css").
+  .copyleft {
+    display: inline-block;
+    transform: scale(-1, 1);
+  }
+  .jumbotron {
+    background: #f7f7f7;
+  }
+
+body.Fontstacks.Fontstacks--arial
+
+  main(style="text-align:center;").jumbotron
+    div.container
+      h1(style="text-transform:capitalize;") #{pkg.name}
+        small v#{pkg.version}
+      p.lead #{pkg.description}
+      p
+        div.btn-group
+          button(type="button", tabindex="1")#download.btn.btn-primary.btn-lg Download
+          // Need Bootstrap.js for dropdowns
+          // Pick download type [master, releases]
+          button(type="button", tabindex="2").btn.btn-primary.btn-lg.disabled
+            span.caret
+
+  div(style="height:-webkit-min-content;").container
+    div#template-container
+
+  footer(style="padding: 40px 0;")
+    div.container
+      p(style="margin-bottom:0;") Developed by #{pkg.author.name} <span class="copyleft">©</span> 2014
+      p(style="margin-bottom:0;") Code licensed under the #{pkg.license.name} <a href="#{pkg.license.url}">License</a>.
+
+  template#websafe-tmpl
+    div(style="font-size: 16px; line-height: 1.4;").row
+      div.col-md-6
+        h2(style="text-transform:capitalize;")#stack-label Name
+        p.text-right
+          button(type="button", data-text="text").clipboard.btn.btn-xs.btn-default Copy to clipboard
+        p
+          pre
+            code#stack-fontstack Stack
+      div.col-md-6.Fontstacks
+        h2 Fontstacks heading
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus tellus, eleifend id urna eget, accumsan sollicitudin eros. Maecenas congue lorem dapibus purus egestas porttitor. Curabitur lobortis eros in justo euismod suscipit. Etiam ultricies risus quis augue luctus rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse quis massa in felis congue mattis. Quisque scelerisque vulputate viverra. Curabitur pulvinar magna in magna placerat porttitor. In a auctor augue. Morbi congue elit vitae ante sollicitudin.
+    hr
+
+  // Javascipt
+  script(type='text/javascript').
+
+    // The download button
+    (function() {
+
+      var re = /.git$/;
+      var github = '#{pkg.repository.url}';
+      var version = '#{pkg.version}';
+
+      var releases = github.replace(re, '/releases/');
+      var zip = github.replace(re, '/archive/master.zip');
+
+
+      // Download button
+      var download = document.querySelector('#download');
+      download.addEventListener('click', function() {
+        return window.open(zip);
+      }, false);
+
+    }).call(this);
+
+    // The HTML5 templates
+    (function() {
+
+      var arr = ['arial', 'georgia', 'times', 'verdana', 'trebuchet', 'monospace'];
+      var fontstacks = {
+        "arial":      "#{fontstacks.arial.stack}",
+        "verdana":    "#{fontstacks.verdana.stack}",
+        "georgia":    "#{fontstacks.georgia.stack}",
+        "times":      "#{fontstacks.times.stack}",
+        "trebuchet":  "#{fontstacks.trebuchet.stack}",
+        "monospace":  "#{fontstacks.monospace.stack}"
+      };
+      var clones = {};
+      var master = document.querySelector('#websafe-tmpl').content;
+
+      /**
+       * Set label
+       * @param {Object} element
+       * @param {String} selector
+       * @param {String} text
+       */
+      function setTextContent(element, text, selector) {
+        if (!element || !text) {return;}
+        try {
+          selector ? element.querySelector(selector).textContent = text : element.textContent = text;
+        } catch(err) {
+          selector ? element.querySelector(selector).innerText = text : element.innerText = text;
+        }
+      }
+
+      /**
+       * Copy to clipboard
+       * @see http://stackoverflow.com/a/6055620
+       */
+      function copyToClipboard(evt) {
+        var stack = evt.srcElement.attributes['data-text'].value;
+        evt.view.prompt("Copy to clipboard: Ctrl+C, Enter", stack);
+      }
+
+      (function buildTmpl() {
+        arr.forEach(function(v, idx) {
+          // Clone master
+          clones[v] = master.cloneNode(true);
+          // Add classname on each
+          (clones[v].querySelector('.Fontstacks')).className += ' Fontstacks--' + v;
+          // Special cases
+          (clones[v].querySelector('.clipboard')).id += 'clipboard-' + idx;
+          // Add text
+          setTextContent(clones[v], 'font-family: \n\t' + fontstacks[v], '#stack-fontstack');
+          setTextContent(clones[v], v, '#stack-label');
+          // Set attribute text for click event
+          (clones[v].querySelector('.clipboard')).setAttribute('data-text', fontstacks[v]);
+          // Append to selector
+          document.querySelector('#template-container').appendChild(document.importNode(clones[v], true));
+          document.querySelector('#clipboard-' + idx).addEventListener('click', copyToClipboard, false);
+        });
+      }).call(this);
+
+      // Special case for monospace
+      var code = 'p {\n\tcolor: red;\n}';
+      var p = document.querySelector('.Fontstacks--monospace p');
+      p.parentNode.removeChild(p);
+      var monospace = document.querySelector('.Fontstacks--monospace');
+      var pre = document.createElement('pre');
+      setTextContent(pre, code);
+      monospace.insertBefore(pre);
+
+
+
+    }).call(this);

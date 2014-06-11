@@ -1,0 +1,41 @@
+{
+  "name": "fontstacks",
+  "version": "0.1.0",
+  "description": "Websafe fontstacks as self-contained components.",
+  "scripts": {
+    "install": "napa"
+  },
+  "napa": {
+    "gulp-less": "christophehurpeau/gulp-less"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henriklundgren/webtippyCSS.git"
+  },
+  "author": {
+    "name": "Henrik Lundgren",
+    "twitter": "heni@twitter"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "bugs": {
+    "url": "https://github.com/henriklundgren/webtippyCSS/issues"
+  },
+  "homepage": "https://github.com/henriklundgren/webtippyCSS",
+  "devDependencies": {
+    "css": "^1.6.0",
+    "gulp": "^3.7.0",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-csscomb": "^0.1.0",
+    "gulp-csso": "^0.2.9",
+    "gulp-gh-pages": "^0.3.2",
+    "gulp-jade": "^0.5.0",
+    "gulp-recess": "^0.3.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-util": "^2.2.16",
+    "parsless": "0.0.1",
+    "stream-combiner": "^0.2.1"
+  }
+}

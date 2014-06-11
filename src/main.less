@@ -1,0 +1,71 @@
+@import "variables.less";
+@import "mixins.less";
+
+@import "fontstacks/georgia.less";
+@import "fontstacks/arial.less";
+@import "fontstacks/times.less";
+@import "fontstacks/verdana.less";
+@import "fontstacks/trebuchet.less";
+
+.fontstacks() {
+
+  font-family: inherit;
+  font-style: normal;
+
+  font-synthesis: weight style;
+
+  .text-mobile();
+
+  p {
+    .text-speed();
+  }
+
+  q,
+  blockquote * {
+    .text-legibility();
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    .text-legibility();
+    font-weight: 500;
+  }
+
+  pre,
+  code,
+  kbd,
+  samp {
+    font-family: @monospace;
+  }
+}
+
+.Fontstacks {
+
+  .fontstacks;
+
+  &--georgia {
+    .georgia;
+  }
+
+  &--arial {
+    .arial;
+  }
+
+  &--times {
+    .times;
+  }
+
+  &--verdana {
+    .verdana;
+  }
+
+  &--trebuchet {
+    .trebuchet;
+  }
+
+}
+

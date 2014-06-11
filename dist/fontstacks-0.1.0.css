@@ -1,0 +1,175 @@
+@charset 'utf-8';
+.Fontstacks
+{
+    font-family: inherit;
+    font-style: normal;
+
+    font-synthesis: weight style;
+    text-size-adjust: auto;
+}
+.Fontstacks p
+{
+    text-rendering: optimizeSpeed;
+    -webkit-font-kerning: auto;
+       -moz-font-kerning: auto;
+            font-kerning: auto;
+}
+.Fontstacks q,
+.Fontstacks blockquote *
+{
+    text-rendering: optimizeLegibility;
+    -webkit-font-kerning: normal;
+       -moz-font-kerning: normal;
+            font-kerning: normal;
+}
+.Fontstacks h1,
+.Fontstacks h2,
+.Fontstacks h3,
+.Fontstacks h4,
+.Fontstacks h5,
+.Fontstacks h6
+{
+    font-weight: 500;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-kerning: normal;
+       -moz-font-kerning: normal;
+            font-kerning: normal;
+}
+.Fontstacks pre,
+.Fontstacks code,
+.Fontstacks kbd,
+.Fontstacks samp
+{
+    font-family: Consolas, Monaco, 'Nimbus Mono L', FreeMono, 'Monospace, monospace';
+}
+.Fontstacks--georgia
+{
+    font-family: Georgia, 'Century Schoolbook L', 'New Century Schoolbook', 'Century Schoolbook', Serif;
+    font-size-adjust: .48;
+}
+.Fontstacks--georgia h1,
+.Fontstacks--georgia h2,
+.Fontstacks--georgia h3,
+.Fontstacks--georgia h4,
+.Fontstacks--georgia h5,
+.Fontstacks--georgia h6
+{
+    font-family: Haettenschweiler, 'Helvetica Inserat', Sans-serif;
+    font-weight: normal;
+    font-size-adjust: .48;
+}
+.Fontstacks--georgia--foss
+{
+    font-family: 'Century Schoolbook L', 'New Century Schoolbook', 'Century Schoolbook', Serif;
+    font-size-adjust: .48;
+}
+.Fontstacks--georgia--foss h1,
+.Fontstacks--georgia--foss h2,
+.Fontstacks--georgia--foss h3,
+.Fontstacks--georgia--foss h4,
+.Fontstacks--georgia--foss h5,
+.Fontstacks--georgia--foss h6
+{
+    font-family: 'Bitstream Vera Sans', 'DejaVu Sans', Geneva, Tahoma, FreeSans, Sans-serif;
+    font-size-adjust: .545;
+}
+.Fontstacks--arial
+{
+    font-family: Arial, 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, FreeSans, Sans-serif;
+    font-size-adjust: .52;
+}
+.Fontstacks--arial h1,
+.Fontstacks--arial h2,
+.Fontstacks--arial h3,
+.Fontstacks--arial h4,
+.Fontstacks--arial h5,
+.Fontstacks--arial h6
+{
+    font-family: Arial, 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, FreeSans, Sans-serif;
+
+    letter-spacing: -1px;
+}
+.Fontstacks--arial--foss
+{
+    font-family: 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, Arial, FreeSans, Sans-serif;
+    font-size-adjust: .531;
+}
+.Fontstacks--arial--foss h1,
+.Fontstacks--arial--foss h2,
+.Fontstacks--arial--foss h3,
+.Fontstacks--arial--foss h4,
+.Fontstacks--arial--foss h5,
+.Fontstacks--arial--foss h6
+{
+    font-family: 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, Arial, FreeSans, Sans-serif;
+}
+.Fontstacks--times
+{
+    font-family: 'Times New Roman', 'Nimbus Roman L', 'Liberation Serif', FreeSerif, Times, Serif;
+    font-size-adjust: .449;
+}
+.Fontstacks--times h1,
+.Fontstacks--times h2,
+.Fontstacks--times h3,
+.Fontstacks--times h4,
+.Fontstacks--times h5,
+.Fontstacks--times h6
+{
+    font-family: Arial, 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, FreeSans, Sans-serif;
+
+    letter-spacing: -1px;
+}
+.Fontstacks--times--foss
+{
+    font-family: 'Nimbus Roman No9 L', 'Nimbus Roman L', 'Liberation Serif', FreeSerif, Serif;
+    font-size-adjust: .47;
+}
+.Fontstacks--verdana
+{
+    font-family: Verdana, 'Bitstream Vera Sans', 'DejaVu Sans', Geneva, Tahoma, FreeSans, Sans-serif;
+    font-size-adjust: .545;
+
+    letter-spacing: -1px;
+}
+.Fontstacks--verdana h1,
+.Fontstacks--verdana h2,
+.Fontstacks--verdana h3,
+.Fontstacks--verdana h4,
+.Fontstacks--verdana h5,
+.Fontstacks--verdana h6
+{
+    font-family: Verdana, 'Bitstream Vera Sans', 'DejaVu Sans', Geneva, Tahoma, FreeSans, Sans-serif;
+
+    letter-spacing: -1px;
+}
+.Fontstacks--verdana--foss
+{
+    font-family: 'Bitstream Vera Sans', 'DejaVu Sans', Geneva, Tahoma, FreeSans, Sans-serif;
+    font-size-adjust: .545;
+}
+.Fontstacks--verdana--foss h1,
+.Fontstacks--verdana--foss h2,
+.Fontstacks--verdana--foss h3,
+.Fontstacks--verdana--foss h4,
+.Fontstacks--verdana--foss h5,
+.Fontstacks--verdana--foss h6
+{
+    font-family: 'Bitstream Vera Sans', 'DejaVu Sans', Geneva, Tahoma, FreeSans, Sans-serif;
+}
+.Fontstacks--verdana--foss pre,
+.Fontstacks--verdana--foss code,
+.Fontstacks--verdana--foss kbd,
+.Fontstacks--verdana--foss samp
+{
+    font-family: 'DejaVu Sans Mono', Monaco, FreeMono, 'Monospace, monospace';
+}
+.Fontstacks--trebuchet
+{
+    font-family: Trebuchet, 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Ubuntu, Sans-serif;
+    font-size-adjust: .525;
+}
+.Fontstacks--trebuchet--foss
+{
+    font-family: Ubuntu, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Sans-serif;
+}

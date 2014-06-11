@@ -1,0 +1,143 @@
+{
+  "monospace": {
+    "name": "monospace",
+    "stack": [
+      "Consolas",
+      "Monaco",
+      "'Nimbus Mono L'",
+      "FreeMono",
+      "'Monospace, monospace'"
+    ]
+  },
+
+  "monospace-foss": {
+    "name": "monospace-foss",
+    "stack": [
+      "'DejaVu Sans Mono'",
+      "Monaco",
+      "FreeMono",
+      "'Monospace, monospace'"
+    ]
+  },
+
+  "trebuchet": {
+    "name": "trebuchet",
+    "stack": [
+      "Trebuchet",
+      "'Trebuchet MS'",
+      "'Lucida Grande'",
+      "'Lucida Sans Unicode'",
+      "'Lucida Sans'",
+      "Ubuntu",
+      "Sans-serif"
+    ]
+  },
+
+  "trebuchet-foss": {
+    "name": "trebuchet-foss",
+    "stack": [
+      "Ubuntu",
+      "'Lucida Grande'",
+      "'Lucida Sans Unicode'",
+      "'Lucida Sans'",
+      "Sans-serif"
+    ]
+  },
+
+  "georgia": {
+    "name": "georgia",
+    "stack": [
+      "Georgia",
+      "'Century Schoolbook L'",
+      "'New Century Schoolbook'",
+      "'Century Schoolbook'",
+      "Serif"
+    ]
+  },
+
+  "georgia-foss": {
+    "name": "georgia-foss",
+    "stack": [
+      "'Century Schoolbook L'",
+      "'New Century Schoolbook'",
+      "'Century Schoolbook'",
+      "Serif"
+    ]
+  },
+
+  "verdana": {
+    "name": "verdana",
+    "stack": [
+      "Verdana",
+      "'Bitstream Vera Sans'",
+      "'DejaVu Sans'",
+      "Geneva",
+      "Tahoma",
+      "FreeSans",
+      "Sans-serif"
+    ]
+  },
+
+  "verdana-foss": {
+    "name": "verdana-foss",
+    "stack": [
+      "'Bitstream Vera Sans'",
+      "'DejaVu Sans'",
+      "Geneva",
+      "Tahoma",
+      "FreeSans",
+      "Sans-serif"
+    ]
+  },
+
+  "arial": {
+    "name": "arial",
+    "stack": [
+      "Arial",
+      "'Liberation Sans'",
+      "'Nimbus Sans L'",
+      "'Helvetica Neue'",
+      "Helvetica",
+      "FreeSans",
+      "Sans-serif"
+    ]
+  },
+
+  "arial-foss": {
+    "name": "arial-foss",
+    "stack": [
+      "'Liberation Sans'",
+      "'Nimbus Sans L'",
+      "'Helvetica Neue'",
+      "Helvetica",
+      "Arial",
+      "FreeSans",
+      "Sans-serif"
+    ]
+  },
+
+  "times": {
+    "name": "times",
+    "stack": [
+      "'Times New Roman'",
+      "'Nimbus Roman L'",
+      "'Liberation Serif'",
+      "FreeSerif",
+      "Times",
+      "Serif"
+    ]
+  },
+
+  "times-foss": {
+    "name": "times-foss",
+    "stack": [
+      "'Nimbus Roman No9 L'",
+      "'Nimbus Roman L'",
+      "'Liberation Serif'",
+      "FreeSerif",
+      "Serif"
+    ]
+  }
+
+}
+

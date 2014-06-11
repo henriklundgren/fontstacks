@@ -1,0 +1,36 @@
+.georgia() {
+
+  font-family: @georgia;
+  font-size-adjust: @georgia-size-adjust;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: @georgia-headings;
+    font-weight: normal; // important for Impact
+    font-size-adjust: @georgia-size-adjust;
+  }
+
+  &--foss {
+
+    font-family: @georgia-foss;
+    font-size-adjust: @georgia-foss-size-adjust;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: @georgia-stack-alt-headings;
+      font-size-adjust: .545; // DejaVu Sans
+    }
+
+
+  }
+
+}
+

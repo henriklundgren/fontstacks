@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>fontstacks</title>
+<!-- mobile browsing-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- css-->
+<!-- CDN fails on file:// protocol (local dev) @see http://stackoverflow.com/a/21318735-->
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="fontstacks-0.1.0.min.css">
+<style type="text/css">
+  .copyleft {
+    display: inline-block;
+    transform: scale(-1, 1);
+  }
+  .jumbotron {
+    background: #f7f7f7;
+  }
+  
+</style>
+<body class="Fontstacks Fontstacks--arial">
+  <main style="text-align:center;" class="jumbotron">
+    <div class="container">
+      <h1 style="text-transform:capitalize;">fontstacks<small>v0.1.0</small></h1>
+      <p class="lead">Websafe fontstacks as self-contained components.</p>
+      <p>
+        <div class="btn-group">
+          <button type="button" tabindex="1" id="download" class="btn btn-primary btn-lg">Download</button>
+          <!-- Need Bootstrap.js for dropdowns-->
+          <!-- Pick download type [master, releases]-->
+          <button type="button" tabindex="2" class="btn btn-primary btn-lg disabled"><span class="caret"></span></button>
+        </div>
+      </p>
+    </div>
+  </main>
+  <div style="height:-webkit-min-content;" class="container">
+    <div id="template-container"></div>
+  </div>
+  <footer style="padding: 40px 0;">
+    <div class="container">
+      <p style="margin-bottom:0;">Developed by Henrik Lundgren <span class="copyleft">©</span> 2014</p>
+      <p style="margin-bottom:0;">Code licensed under the MIT <a href="http://opensource.org/licenses/MIT">License</a>.</p>
+    </div>
+  </footer>
+  <template id="websafe-tmpl">
+    <div style="font-size: 16px; line-height: 1.4;" class="row">
+      <div class="col-md-6">
+        <h2 style="text-transform:capitalize;" id="stack-label">Name</h2>
+        <p class="text-right">
+          <button type="button" data-text="text" class="clipboard btn btn-xs btn-default">Copy to clipboard</button>
+        </p>
+        <p>
+          <pre><code id="stack-fontstack">Stack</code></pre>
+        </p>
+      </div>
+      <div class="col-md-6 Fontstacks">
+        <h2>Fontstacks heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus tellus, eleifend id urna eget, accumsan sollicitudin eros. Maecenas congue lorem dapibus purus egestas porttitor. Curabitur lobortis eros in justo euismod suscipit. Etiam ultricies risus quis augue luctus rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse quis massa in felis congue mattis. Quisque scelerisque vulputate viverra. Curabitur pulvinar magna in magna placerat porttitor. In a auctor augue. Morbi congue elit vitae ante sollicitudin.</p>
+      </div>
+    </div>
+    <hr>
+  </template>
+  <!-- Javascipt-->
+  <script type="text/javascript">
+    // The download button
+    (function() {
+    
+      var re = /.git$/;
+      var github = 'https://github.com/henriklundgren/webtippyCSS.git';
+      var version = '0.1.0';
+      
+      var releases = github.replace(re, '/releases/');
+      var zip = github.replace(re, '/archive/master.zip');
+      
+      
+      // Download button
+      var download = document.querySelector('#download');
+      download.addEventListener('click', function() {
+        return window.open(zip);
+      }, false);
+      
+    }).call(this);
+    
+    // The HTML5 templates
+    (function() {
+    
+      var arr = ['arial', 'georgia', 'times', 'verdana', 'trebuchet', 'monospace'];
+      var fontstacks = {
+        "arial":      "Arial,'Liberation Sans','Nimbus Sans L','Helvetica Neue',Helvetica,FreeSans,Sans-serif",
+        "verdana":    "Verdana,'Bitstream Vera Sans','DejaVu Sans',Geneva,Tahoma,FreeSans,Sans-serif",
+        "georgia":    "Georgia,'Century Schoolbook L','New Century Schoolbook','Century Schoolbook',Serif",
+        "times":      "'Times New Roman','Nimbus Roman L','Liberation Serif',FreeSerif,Times,Serif",
+        "trebuchet":  "Trebuchet,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Ubuntu,Sans-serif",
+        "monospace":  "Consolas,Monaco,'Nimbus Mono L',FreeMono,'Monospace, monospace'"
+      };
+      var clones = {};
+      var master = document.querySelector('#websafe-tmpl').content;
+      
+      /**
+       * Set label
+       * @param {Object} element
+       * @param {String} selector
+       * @param {String} text
+       */
+      function setTextContent(element, text, selector) {
+        if (!element || !text) {return;}
+        try {
+          selector ? element.querySelector(selector).textContent = text : element.textContent = text;
+        } catch(err) {
+          selector ? element.querySelector(selector).innerText = text : element.innerText = text;
+        }
+      }
+      
+      /**
+       * Copy to clipboard
+       * @see http://stackoverflow.com/a/6055620
+       */
+      function copyToClipboard(evt) {
+        var stack = evt.srcElement.attributes['data-text'].value;
+        evt.view.prompt("Copy to clipboard: Ctrl+C, Enter", stack);
+      }
+      
+      (function buildTmpl() {
+        arr.forEach(function(v, idx) {
+          // Clone master
+          clones[v] = master.cloneNode(true);
+          // Add classname on each
+          (clones[v].querySelector('.Fontstacks')).className += ' Fontstacks--' + v;
+          // Special cases
+          (clones[v].querySelector('.clipboard')).id += 'clipboard-' + idx;
+          // Add text
+          setTextContent(clones[v], 'font-family: \n\t' + fontstacks[v], '#stack-fontstack');
+          setTextContent(clones[v], v, '#stack-label');
+          // Set attribute text for click event
+          (clones[v].querySelector('.clipboard')).setAttribute('data-text', fontstacks[v]);
+          // Append to selector
+          document.querySelector('#template-container').appendChild(document.importNode(clones[v], true));
+          document.querySelector('#clipboard-' + idx).addEventListener('click', copyToClipboard, false);
+        });
+      }).call(this);
+      
+      // Special case for monospace
+      var code = 'p {\n\tcolor: red;\n}';
+      var p = document.querySelector('.Fontstacks--monospace p');
+      p.parentNode.removeChild(p);
+      var monospace = document.querySelector('.Fontstacks--monospace');
+      var pre = document.createElement('pre');
+      setTextContent(pre, code);
+      monospace.insertBefore(pre);
+      
+      
+      
+    }).call(this);
+  </script>
+</body>
